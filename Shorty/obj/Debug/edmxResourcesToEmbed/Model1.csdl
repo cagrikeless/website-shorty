@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TBLSIGN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TBLORDERINFO">
+    <Key>
+      <PropertyRef Name="ORDERID" />
+    </Key>
+    <Property Name="ORDERID" Type="Int32" Nullable="false" />
+    <Property Name="ORDERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ORDERPRICE" Type="Int32" />
+    <Property Name="ORDERBARCODE" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TBLSIGNs" EntityType="Self.TBLSIGN" />
+    <EntitySet Name="TBLORDERINFOes" EntityType="Self.TBLORDERINFO" />
+  </EntityContainer>
+</Schema>

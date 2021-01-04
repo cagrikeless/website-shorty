@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'e-Ticaret.dbo.TBLORDERINFO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TBLORDERINFO">
+    <Key>
+      <PropertyRef Name="ORDERID" />
+    </Key>
+    <Property Name="ORDERID" Type="int" Nullable="false" />
+    <Property Name="ORDERNAME" Type="varchar" MaxLength="50" />
+    <Property Name="ORDERPRICE" Type="int" />
+    <Property Name="ORDERBARCODE" Type="varchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="TBLSIGN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="20" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="TBLSIGN" EntityType="Self.TBLSIGN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLORDERINFO" EntityType="Self.TBLORDERINFO" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TBLORDERINFO].[ORDERID] AS [ORDERID], 
+    [TBLORDERINFO].[ORDERNAME] AS [ORDERNAME], 
+    [TBLORDERINFO].[ORDERPRICE] AS [ORDERPRICE], 
+    [TBLORDERINFO].[ORDERBARCODE] AS [ORDERBARCODE]
+    FROM [dbo].[TBLORDERINFO] AS [TBLORDERINFO]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
